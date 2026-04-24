@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ritesh Jantre — Full Stack AI Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300,0,0" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --ink-2: #3a3834;
+    --ink-3: #7a7870;
+    --paper: #f5f2ec;
+    --paper-2: #ede9e0;
+    --accent: #1a3a2a;
+    --accent-light: #2d6147;
+    --accent-glow: #4a9b70;
+    --amber: #c4780a;
+    --amber-light: #f5a623;
+    --border: rgba(15,14,12,0.12);
+    --border-strong: rgba(15,14,12,0.22);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.25rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245,242,236,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    font-size: 0.82rem;
+    padding: 0.5rem 1.25rem;
+    background: var(--accent);
+    color: #e8f5ee !important;
+    border-radius: 2rem;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent-light) !important; color: #e8f5ee !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+  
+   
+    align-items: center;
+    padding: 8rem 3rem 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 3.25rem;
+    position: relative;
+  }
+.hero-top{
+    display: grid;
+   grid-template-columns: 1fr 1fr;
+}
+  .hero-left {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-left::after {
+    content: none;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-light);
+    background: rgba(26,58,42,0.07);
+    border: 0.5px solid rgba(26,58,42,0.2);
+    padding: 0.35rem 0.85rem;
+    border-radius: 2rem;
+    margin-bottom: 1.75rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-glow);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  .hero-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s 0.15s ease both;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-desc strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.25s ease both;
+  }
+
+  .btn-primary {
+    padding: 0.75rem 1.75rem;
+    background: var(--accent);
+    color: #e8f5ee;
+    border: none;
+    border-radius: 2rem;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    padding: 0.75rem 1.75rem;
+    background: transparent;
+    color: var(--ink-2);
+    border: 0.5px solid var(--border-strong);
+    border-radius: 2rem;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-ghost:hover { border-color: var(--ink); color: var(--ink); transform: translateY(-1px); }
+
+  /* ── HERO RIGHT ── */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-stats {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .profile-stage {
+    position: relative;
+    min-height: 520px;
+    border-radius: 0;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .profile-stage::before {
+    content: none;
+    position: absolute;
+    inset: 0;
+    /* background:
+      radial-gradient(circle at 70% 18%, rgba(74,155,112,0.24), rgba(74,155,112,0) 42%),
+      linear-gradient(180deg, rgba(237,233,224,0.95), rgba(237,233,224,0.35)); */
+  }
+
+  .profile-stage::after {
+    content: none;
+    position: absolute;
+    inset: 0;
+    /* background:
+      linear-gradient(180deg, rgba(15,14,12,0) 48%, rgba(15,14,12,0.62) 100%),
+      linear-gradient(90deg, rgba(26,58,42,0.22), rgba(245,242,236,0) 48%); */
+  }
+
+  .profile-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    opacity: 1;
+  }
+
+  .profile-caption {
+    position: absolute;
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .profile-caption strong {
+    display: block;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    line-height: 1;
+    color: #e8f5ee;
+  }
+
+  .profile-caption span {
+    display: block;
+    margin-top: 0.3rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(232,245,238,0.62);
+  }
+
+  .profile-signal {
+    flex-shrink: 0;
+    padding: 0.35rem 0.65rem;
+    border: 0.5px solid rgba(232,245,238,0.22);
+    border-radius: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(232,245,238,0.72);
+    background: rgba(15,14,12,0.22);
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-card {
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .stat-card:hover {
+    transform: translateX(4px);
+    box-shadow: -4px 0 0 var(--accent-light);
+  }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .stat-icon.green,
+  .stat-icon.amber,
+  .stat-icon.blue {
+    background: rgba(26,58,42,0.08);
+  }
+  .stat-icon { color: var(--accent-light); }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+    color: var(--ink-3);
+    margin-top: 0.2rem;
+  }
+
+  /* ── SECTION ── */
+  section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 5rem 3rem;
+    position: relative;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-3);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--ink-3);
+    max-width: 560px;
+    margin-bottom: 3.5rem;
+    line-height: 1.7;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 0.5px;
+    background: var(--border);
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .philosophy-card {
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    transition: transform 0.2s;
+  }
+
+  .philosophy-card:hover { transform: translateY(-2px); }
+
+  .philosophy-card.featured {
+    background: var(--accent);
+    border-color: var(--accent);
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .philosophy-card.featured .ph-title,
+  .philosophy-card.featured .ph-text {
+    color: #e8f5ee;
+  }
+
+  .philosophy-card.featured .ph-label { color: rgba(232,245,238,0.6); }
+
+  .ph-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-3);
+    margin-bottom: 0.75rem;
+  }
+
+  .ph-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .ph-text {
+    font-size: 0.9rem;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+
+  .quote-block {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #e8f5ee;
+    line-height: 1.45;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    border-bottom: 0.5px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-meta {}
+
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  .exp-company {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink-2);
+  }
+
+  .exp-content {}
+
+  .exp-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .exp-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+    background: rgba(26,58,42,0.07);
+    color: var(--accent-light);
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .exp-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .exp-points li {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    padding-left: 1.1rem;
+    position: relative;
+    line-height: 1.65;
+  }
+
+  .exp-points li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-glow);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+  }
+
+  /* ── IMPACT NUMBERS ── */
+  .impact-strip {
+    background: var(--accent);
+    padding: 4rem 3rem;
+  }
+
+  .impact-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .impact-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    color: #e8f5ee;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .impact-label {
+    font-size: 0.85rem;
+    color: rgba(232,245,238,0.65);
+    line-height: 1.5;
+  }
+
+  /* ── PRODUCTS ── */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .product-card {
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+
+  .product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(15,14,12,0.07);
+  }
+
+  .product-card.dark {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .product-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 0.75rem;
+    background: var(--paper-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--accent-light);
+  }
+
+  .product-card.dark .product-icon {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .product-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .product-card.dark .product-name { color: #e8f5ee; }
+
+  .product-desc {
+    font-size: 0.82rem;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+
+  .product-card.dark .product-desc { color: rgba(232,245,238,0.55); }
+
+  .product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+  }
+
+  .ptag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.2rem 0.5rem;
+    background: var(--paper-2);
+    color: var(--ink-3);
+    border-radius: 0.25rem;
+  }
+
+  .product-card.dark .ptag {
+    background: rgba(255,255,255,0.07);
+    color: rgba(232,245,238,0.55);
+  }
+
+  /* ── RAPID PROTOTYPES ── */
+  .rapid-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .rapid-card {
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .rapid-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15,14,12,0.06);
+  }
+
+  .rapid-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .rapid-id {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    background: rgba(26,58,42,0.07);
+    border: 0.5px solid rgba(26,58,42,0.16);
+    border-radius: 2rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .rapid-timeline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+  }
+
+  .rapid-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  .rapid-focus {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .rapid-achievement {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin-top: 0.1rem;
+  }
+
+  .rapid-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-top: 0.9rem;
+    border-top: 0.5px solid var(--border);
+    margin-top: auto;
+  }
+
+  .rapid-tech {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    padding: 0.2rem 0.5rem;
+    background: rgba(15,14,12,0.04);
+    border-radius: 0.25rem;
+  }
+
+  /* ── SKILLS ── */
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .skill-group { margin-bottom: 2rem; }
+
+  .skill-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--ink-3);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-size: 0.83rem;
+    padding: 0.4rem 0.85rem;
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 2rem;
+    color: var(--ink-2);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .skill-tag:hover { border-color: var(--accent-light); color: var(--accent-light); }
+
+  .skill-tag.highlight {
+    background: rgba(26,58,42,0.06);
+    border-color: rgba(26,58,42,0.2);
+    color: var(--accent-light);
+    font-weight: 500;
+  }
+
+  /* certifications */
+  .cert-list { display: flex; flex-direction: column; gap: 0.85rem; }
+
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 0.75rem;
+    transition: border-color 0.2s;
+  }
+
+  .cert-item:hover { border-color: var(--accent-light); }
+
+  .cert-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-glow);
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+  }
+
+  .cert-name {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+  }
+
+  .cert-issuer {
+    font-size: 0.78rem;
+    color: var(--ink-3);
+  }
+
+  /* ── ACHIEVEMENTS ── */
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .ach-card {
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .ach-card:hover { transform: translateY(-2px); }
+
+  .ach-card.winner {
+    background: var(--accent-glow);
+    border-color: var(--accent);
+  }
+
+  .ach-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.3rem 0.65rem;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .ach-badge.gold {
+    background: rgba(255,255,255,0.2);
+    color: white;
+  }
+
+  .ach-badge.silver {
+    background: rgba(26,58,42,0.07);
+    color: var(--accent-light);
+  }
+
+  .ach-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .ach-card.winner .ach-title { color: white; }
+
+  .ach-desc {
+    font-size: 0.85rem;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+
+  .ach-card.winner .ach-desc { color: rgba(255,255,255,0.75); }
+
+  .ach-trophy {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 2rem;
+    opacity: 0.25;
+    color: var(--accent-light);
+  }
+
+  /* ── SIDE PROJECTS ── */
+  .side-projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .sp-card {
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sp-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(15,14,12,0.08);
+  }
+
+  .sp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent-glow);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .sp-card:hover::before { opacity: 1; }
+
+  .sp-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .sp-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .sp-icon.green { background: rgba(74,155,112,0.1); }
+  .sp-icon.amber { background: rgba(196,120,10,0.1); }
+  .sp-icon.blue  { background: rgba(74,130,196,0.1); }
+  .sp-icon.purple { background: rgba(124,92,191,0.1); }
+  .sp-icon { color: var(--accent-light); }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    line-height: 1;
+    display: block;
+  }
+
+  .contact-link .material-symbols-outlined { display: inline-block; }
+
+  .sp-self-built {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.6rem;
+    background: rgba(26,58,42,0.07);
+    color: var(--accent-light);
+    border-radius: 2rem;
+    border: 0.5px solid rgba(26,58,42,0.15);
+  }
+
+  .sp-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+
+  .sp-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    margin-bottom: 1rem;
+  }
+
+  .sp-desc {
+    font-size: 0.88rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  .sp-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sp-feature {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.65rem;
+    background: var(--paper-2);
+    border-radius: 0.3rem;
+    color: var(--ink-2);
+    border: 0.5px solid var(--border);
+  }
+
+  .sp-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--border);
+    margin-top: auto;
+  }
+
+  .sp-tech {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    padding: 0.2rem 0.5rem;
+    background: rgba(15,14,12,0.04);
+    border-radius: 0.25rem;
+  }
+
+  .sp-end-image-wrap {
+    margin-top: 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 0.5px solid var(--border);
+    background: white;
+  }
+
+  .sp-end-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .side-projects-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--ink);
+    padding: 6rem 3rem;
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .contact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(232,245,238,0.45);
+    margin-bottom: 1rem;
+  }
+
+  .contact-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    color: #e8f5ee;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+
+  .contact-sub {
+    font-size: 0.95rem;
+    color: rgba(232,245,238,0.55);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 0.5px solid rgba(232,245,238,0.2);
+    border-radius: 2rem;
+    color: rgba(232,245,238,0.8);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .contact-link:hover {
+    border-color: rgba(232,245,238,0.6);
+    color: #e8f5ee;
+    background: rgba(232,245,238,0.05);
+  }
+
+  .contact-link.primary {
+    background: var(--accent-light);
+    border-color: var(--accent-light);
+    color: #e8f5ee;
+  }
+
+  .contact-link.primary:hover { background: var(--accent-glow); border-color: var(--accent-glow); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 0.5px solid rgba(232,245,238,0.08);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(232,245,238,0.3);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── SCROLLING TAG STRIP ── */
+  .tag-strip {
+    background: var(--paper-2);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    overflow: hidden;
+    padding: 0.75rem 0;
+  }
+
+  .tag-strip-inner {
+    display: flex;
+    gap: 2rem;
+    animation: scroll-tags 22s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes scroll-tags {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .strip-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .strip-item::after {
+    content: '·';
+    color: var(--accent-glow);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 3rem; }
+    .hero-left::after { inset: -2rem -1rem; opacity: 0.08; }
+    .profile-stage { min-height: 560px; max-width: 460px; width: 100%; margin: 0 auto; }
+    section { padding: 3.5rem 1.5rem; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .philosophy-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .rapid-grid { grid-template-columns: 1fr; }
+    .skills-layout { grid-template-columns: 1fr; }
+    .achievements-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .impact-inner { grid-template-columns: repeat(2, 1fr); }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .contact-section { padding: 4rem 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .impact-inner { grid-template-columns: 1fr 1fr; }
+    .hero-name { font-size: 3rem; }
+    .profile-stage { min-height: 430px; border-radius: 1.25rem; }
+    .profile-caption { align-items: flex-start; flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Ritesh Jantre</a>
+  <ul class="nav-links">
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#rapid-prototypes">Rapid Prototypes</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#side-projects">Side Projects</a></li>
+    <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-top">  <div class="hero-right">
+    <div class="profile-stage">
+      <img
+        class="profile-photo"
+        src="https://static.wixstatic.com/media/20b418_6b6c017b8d404b70a5dcfa3bf851281b~mv2.png"
+        alt="Ritesh Jantre profile picture"
+      >
+      <div class="profile-caption">
+        <!-- <div>
+          <strong>Ritesh Jantre</strong>
+          <span>Full Stack AI Product Manager</span>
+        </div>
+        <div class="profile-signal">Available for AI product builds</div> -->
+      </div>
+    </div>
+  </div>
+  <div class="hero-left">
+    <div class="hero-tag">Full Stack AI Product Manager</div>
+    <h1 class="hero-name">Ritesh<br><em>Jantre</em></h1>
+    <p class="hero-title">Pune, India · 11 yrs SaaS · 7+ yrs Product Management</p>
+    <p class="hero-desc">
+      I don't just <strong>define products</strong>. Now I <strong>design, code, and build</strong> them 0-to-1 with AI-powered tools. <br>Product mindset + technical depth — shipped in weeks, not months.
+    </p>
+    <div class="hero-actions">
+      <a href="#experience" class="btn-primary">View experience →</a>
+      <a href="mailto:riteshjantreofficial@gmail.com" class="btn-ghost">riteshjantreofficial@gmail.com</a>
+    </div>
+
+  
+  </div>
+  </div>
+
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-icon green"><span class="material-symbols-outlined">rocket_launch</span></div>
+        <div>
+          <div class="stat-num">5 AI</div>
+          <div class="stat-label">use cases delivered in 6 months at NICE</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon amber"><span class="material-symbols-outlined">lightbulb</span></div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">POC-to-roadmap conversion</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon blue"><span class="material-symbols-outlined">bolt</span></div>
+        <div>
+          <div class="stat-num">$5M</div>
+          <div class="stat-label">strategic deal closed via TaaS transformation</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green"><span class="material-symbols-outlined">smart_toy</span></div>
+        <div>
+          <div class="stat-num">20K+</div>
+          <div class="stat-label">annual hours saved through RPA Bot Platform</div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- SCROLLING TAG STRIP -->
+<div class="tag-strip">
+  <div class="tag-strip-inner">
+    <span class="strip-item">AI Product Strategy</span>
+    <span class="strip-item">Azure AI Foundry</span>
+    <span class="strip-item">RAG Systems</span>
+    <span class="strip-item">0-to-1 Builder</span>
+    <span class="strip-item">Public Safety &amp; Justice</span>
+    <span class="strip-item">RPA Automation</span>
+    <span class="strip-item">Prompt Engineering</span>
+    <span class="strip-item">React · FastAPI · Python</span>
+    <span class="strip-item">OpenAI APIs</span>
+    <span class="strip-item">Hackathon Winner</span>
+    <span class="strip-item">CSPO Certified</span>
+    <span class="strip-item">Mission-Critical Systems</span>
+    <!-- duplicate for infinite scroll -->
+    <span class="strip-item">AI Product Strategy</span>
+    <span class="strip-item">Azure AI Foundry</span>
+    <span class="strip-item">RAG Systems</span>
+    <span class="strip-item">0-to-1 Builder</span>
+    <span class="strip-item">Public Safety &amp; Justice</span>
+    <span class="strip-item">RPA Automation</span>
+    <span class="strip-item">Prompt Engineering</span>
+    <span class="strip-item">React · FastAPI · Python</span>
+    <span class="strip-item">OpenAI APIs</span>
+    <span class="strip-item">Hackathon Winner</span>
+    <span class="strip-item">CSPO Certified</span>
+    <span class="strip-item">Mission-Critical Systems</span>
+  </div>
+</div>
+
+<!-- IMPACT NUMBERS -->
+<div class="impact-strip">
+  <div class="impact-inner">
+    <div class="reveal">
+      <div class="impact-num">11</div>
+      <div class="impact-label">years in SaaS across public safety, fintech & capital markets</div>
+    </div>
+    <div class="reveal">
+      <div class="impact-num">75%</div>
+      <div class="impact-label">reduction in script creation via AI-generated BDD automation</div>
+    </div>
+    <div class="reveal">
+      <div class="impact-num">120+</div>
+      <div class="impact-label">enterprise clients served through automation platforms at FIS</div>
+    </div>
+    <div class="reveal">
+      <div class="impact-num">300+</div>
+      <div class="impact-label">daily production health checks orchestrated automatically</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="section-label reveal">How I think</div>
+  <h2 class="section-title reveal">Builder's mindset,<br><em>PM's compass</em></h2>
+  <p class="section-sub reveal">The PM in me thinks in strategy and outcomes. The builder in me ships working demos in weeks. AI is the amplifier between both.</p>
+  <div class="philosophy-grid">
+    <div class="philosophy-card reveal">
+      <div class="ph-label">01 — Approach</div>
+      <div class="ph-title">Ship prototypes, not slide decks</div>
+      <div class="ph-text">Instead of waiting months for production-ready builds, I deliver functional, demoable MVPs directly to leadership and sales engineers. Validate fast, iterate smarter — agile product development amplified by AI.</div>
+    </div>
+    <div class="philosophy-card reveal">
+      <div class="ph-label">02 — Edge</div>
+      <div class="ph-title">Bridging product & engineering</div>
+      <div class="ph-text">I speak both languages fluently. I can sit with architects on system design decisions then translate the same nuance into a compelling customer story — without losing fidelity on either side.</div>
+    </div>
+    <div class="philosophy-card featured reveal">
+      <div>
+        <div class="ph-label">03 — Philosophy</div>
+        <div class="quote-block">"I don't wait months for a dev team. I build the first version myself — and use that to get everyone aligned."</div>
+      </div>
+      <div>
+        <div class="ph-title">Fail fast. Learn faster. Ship smarter.</div>
+        <div class="ph-text">Delivering 5 AI use cases in 6 months wasn't luck — it was a methodology. Prototype in public, gather feedback early, and only commit engineering resources once the concept is validated in front of real customers.</div>
+      </div>
+    </div>
+    <div class="philosophy-card reveal">
+      <div class="ph-label">04 — Leadership</div>
+      <div class="ph-title">Customer-first, always</div>
+      <div class="ph-text">Strong communication, storytelling, and the ability to align cross-functional teams around a single, clear outcome. I don't just define what to build — I make sure every stakeholder understands <em>why</em>.</div>
+    </div>
+    <div class="philosophy-card reveal">
+      <div class="ph-label">05 — AI-First</div>
+      <div class="ph-title">AI as leverage, not novelty</div>
+      <div class="ph-text">GitHub Copilot, Claude Code, Cursor AI, Azure AI Foundry — these aren't tools I demo. They're how I work every day. AI removes the bottlenecks between ideation and working software.</div>
+    </div>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label reveal">Career</div>
+  <h2 class="section-title reveal">Experience that <em>compounds</em></h2>
+  <p class="section-sub reveal">From automation engineer to AI product leader — every role built on the last.</p>
+
+  <div class="exp-list">
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Jun 2025 — Present</div>
+        <div class="exp-company">NiCE, Pune</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Platform Product Specialist</div>
+        <div class="exp-tag">AI Innovation · Public Safety · 911</div>
+        <ul class="exp-points">
+          <li>Orchestrating on-premises roadmap for mission-critical 911 Recording system, leading a global engineering team of 15+ across geographies.</li>
+          <li>Led "Innovation Lab" — architected and built 5 full-stack AI use cases within a single quarter on existing tech stack with Azure AI services. 100% transitioned to roadmap (2 in cGA, 2 in development, 1 in planning).</li>
+          <li>Drive AI architectural decisions with Solution Architects, balancing scalability and cost-efficiency to turn complex technical nuances into stable product features.</li>
+          <li>Building 911 Cloud solutions for PSAP centre performance, defining product requirements for Cloud Platform and AI integration.</li>
+          <li>Evaluating hackathon projects and patents at GTC initiatives, prioritising innovations into Public Safety &amp; Justice product roadmaps.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Jun 2021 — Jun 2025</div>
+        <div class="exp-company">FIS, Pune</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Senior Product Lead</div>
+        <div class="exp-tag">Automation CoE</div>
+        <ul class="exp-points">
+          <li>Led product strategy in Automation CoE, building solutions serving 120+ clients and establishing "Testing as a Service" (TaaS) for FIS customers.</li>
+          <li>Launched AI solution using OpenAI APIs that auto-generates BDD scripts from manual test cases — automated 75% of script creation, cutting manual effort by 60%.</li>
+          <li>Conceptualised multi-tenant Automation Orchestrator managing 300+ daily production health checks, with VM allocation engine eliminating manual logins.</li>
+          <li>Secured a 5-year strategic deal by transforming internal CoE tools into a revenue-generating TaaS package worth $5M, delivering 50%+ cost savings.</li>
+          <li>Led quarterly release demos for 1,000+ active enterprise users, driving wide adoption across the organisation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Apr 2019 — May 2021</div>
+        <div class="exp-company">FIS, Pune</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Product Lead</div>
+        <div class="exp-tag">Automation CoE</div>
+        <ul class="exp-points">
+          <li>Managed lifecycle of a hybrid low-code/no-code automation framework (Selenium/WPF) for Web, Desktop, and RPA — enabling non-technical users to build complex scripts.</li>
+          <li>Directed end-to-end RPA delivery across Web, Desktop, Mainframe, and REST APIs, achieving 12,000+ hours in annual effort savings.</li>
+          <li>Engineered a 24/7 RPA Email Bot with ML/AI to interpret complex email intent and trigger precise automated workflows for high-volume service requests.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Apr 2017 — Mar 2019</div>
+        <div class="exp-company">FIS, Pune</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Senior Automation Engineer</div>
+        <div class="exp-tag">RPA · Cross-Platform</div>
+        <ul class="exp-points">
+          <li>Led end-to-end RPA projects across Web, Desktop, Mainframe, and REST APIs.</li>
+          <li>Delivered 12,000 hours of effort savings through cross-platform application integration.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Feb 2015 — Mar 2017</div>
+        <div class="exp-company">Sungard, Pune</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Automation Engineer</div>
+        <div class="exp-tag">Fintech Automation</div>
+        <ul class="exp-points">
+          <li>Automated Fintech products and maintained automation suites executing regression cycles.</li>
+          <li>Defined structure-based, data-driven automations for account creations, transactions, and report generation.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-label reveal">Products I Worked on</div>
+  <h2 class="section-title reveal">Products & <em>solutions</em></h2>
+  <p class="section-sub reveal">From mission-critical 911 systems to AI-powered automation platforms — real products with real users.</p>
+
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <div class="product-icon"><span class="material-symbols-outlined">notifications_active</span></div>
+      <div class="product-name">911 Recorder Platform</div>
+      <div class="product-desc">Mission-critical on-premises recording system for emergency call centres. High-availability architecture across geographies, managed with a global team of 15+.</div>
+      <div class="product-tags">
+        <span class="ptag">Public Safety</span>
+        <span class="ptag">Mission-Critical</span>
+        <span class="ptag">On-Prem</span>
+      </div>
+    </div>
+
+
+
+    <div class="product-card reveal">
+      <div class="product-icon"><span class="material-symbols-outlined">cloud</span></div>
+      <div class="product-name">911 Cloud Solutions</div>
+      <div class="product-desc">Cloud platform for PSAP centre performance, including AI-driven insights for dispatchers and operational intelligence for call centre leadership.</div>
+      <div class="product-tags">
+        <span class="ptag">Cloud</span>
+        <span class="ptag">AI</span>
+        <span class="ptag">PSAP</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-icon"><span class="material-symbols-outlined">smart_toy</span></div>
+      <div class="product-name">AI Test Script Generator</div>
+      <div class="product-desc">OpenAI-powered tool that auto-generates BDD test scripts from manual test cases. Automated 75% of script creation, cutting manual effort by 60%.</div>
+      <div class="product-tags">
+        <span class="ptag">OpenAI</span>
+        <span class="ptag">BDD</span>
+        <span class="ptag">Automation</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-icon"><span class="material-symbols-outlined">settings</span></div>
+      <div class="product-name">Enterprise Automation Orchestrator</div>
+      <div class="product-desc">Multi-tenant platform managing 300+ daily production health checks. VM allocation engine eliminated manual logins, cutting operational costs significantly.</div>
+      <div class="product-tags">
+        <span class="ptag">Multi-Tenant</span>
+        <span class="ptag">Test Execution</span>
+        <span class="ptag">Result Analytics</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-icon"><span class="material-symbols-outlined">videocam</span></div>
+      <div class="product-name">Smart Web App Recorder</div>
+      <div class="product-desc">Captured UI interactions and auto-generated automation scripts through a rapid prototype sprint focused on recording-driven automation.</div>
+      <div class="product-tags">
+        <span class="ptag">Selenium</span>
+        <span class="ptag">Automation</span>
+        <span class="ptag">Python</span>
+        <span class="ptag">AI/ML</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-icon"><span class="material-symbols-outlined">handshake</span></div>
+      <div class="product-name">Testing as a Service (TaaS)</div>
+      <div class="product-desc">Transformed internal CoE tools into a revenue-generating external product. Secured a 5-year, $5M strategic deal serving 120+ enterprise clients.</div>
+      <div class="product-tags">
+        <span class="ptag">$5M Deal</span>
+        <span class="ptag">120+ Clients</span>
+        <span class="ptag">SaaS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RAPID PROTOTYPES -->
+<section id="rapid-prototypes">
+  <div class="section-label reveal">what I've built</div>
+  <h2 class="section-title reveal">Rapid Prototype <em>Use Cases</em></h2>
+  <p class="section-sub reveal">From idea to working demos in days or weeks. These are high-impact prototypes built to validate outcomes fast.</p>
+
+  <div class="rapid-grid">
+    <article class="rapid-card reveal">
+      <div class="rapid-head">
+        <span class="rapid-id">01</span>
+        <span class="rapid-timeline">From concept to live demo in 1 week</span>
+      </div>
+      <div class="rapid-name">911 PSAP AI Call Summary &amp; Auto Score</div>
+      <div class="rapid-focus">Live call quality acceleration</div>
+      <div class="rapid-achievement">Automated call summarization and quality scoring for faster supervisor reviews.</div>
+      <div class="rapid-stack">
+                  <span class="rapid-tech">Azure AI Speech Service</span>
+        <span class="rapid-tech">OpenAIService</span>
+        <span class="rapid-tech">FastAPI</span>
+        <span class="rapid-tech">React</span>
+      </div>
+    </article>
+
+    <article class="rapid-card reveal">
+      <div class="rapid-head">
+        <span class="rapid-id">02</span>
+        <span class="rapid-timeline">From concept to functional prototype in 2 weeks</span>
+      </div>
+      <div class="rapid-name">911 PSAP Supervisor AI Assistant</div>
+      <div class="rapid-focus">Center performance intelligence</div>
+      <div class="rapid-achievement">Built AI assistant for center performance monitoring and coaching insights.</div>
+      <div class="rapid-stack">
+        <span class="rapid-tech">Azure AI Search</span>
+        <span class="rapid-tech">Azure Cosmos DB</span>
+        <span class="rapid-tech">React</span>
+        <span class="rapid-tech">Python</span>
+      </div>
+    </article>
+
+    <article class="rapid-card reveal">
+      <div class="rapid-head">
+        <span class="rapid-id">03</span>
+        <span class="rapid-timeline">From concept to functional prototype in 2 weeks</span>
+      </div>
+      <div class="rapid-name">Evidence Central Copilot for Prosecutors</div>
+      <div class="rapid-focus">Case evidence synthesis</div>
+      <div class="rapid-achievement">Enabled prosecutors to retrieve case intelligence across evidence records.</div>
+      <div class="rapid-stack">
+        <span class="rapid-tech">Azure AI Search</span>
+        <span class="rapid-tech">Document Intelligence</span>
+        <span class="rapid-tech">FastAPI</span>
+      </div>
+    </article>
+
+    <article class="rapid-card reveal">
+      <div class="rapid-head">
+        <span class="rapid-id">04</span>
+        <span class="rapid-timeline">From concept to internal rollout in 3 weeks</span>
+      </div>
+      <div class="rapid-name">Product Support Agent</div>
+      <div class="rapid-focus">Cross-team product support</div>
+      <div class="rapid-achievement">Centralized product fixes and knowledge for support and engineering teams. Fasters issue identification, available fixes, document guidance</div>
+      <div class="rapid-stack">
+        <span class="rapid-tech">Microsoft Copilot</span>
+        <span class="rapid-tech">Semantic Search</span>
+        <span class="rapid-tech">GenAI</span>
+        <span class="rapid-tech">React</span>
+      </div>
+    </article>
+
+
+
+    <article class="rapid-card reveal">
+      <div class="rapid-head">
+        <span class="rapid-id">06</span>
+        <span class="rapid-timeline">From PRD to pilot build in 10 days</span>
+      </div>
+      <div class="rapid-name">GenAI Test Case Generator</div>
+      <div class="rapid-focus">Requirements-to-QA acceleration</div>
+      <div class="rapid-achievement">Transformed requirements into structured test cases for faster QA.</div>
+      <div class="rapid-stack">
+        <span class="rapid-tech">OpenAI</span>
+        <span class="rapid-tech">Prompt Engineering</span>
+        <span class="rapid-tech">QA Workflows</span>
+        <span class="rapid-tech">FastAPI</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label reveal">Capabilities</div>
+  <h2 class="section-title reveal">Skills &amp; <em>certifications</em></h2>
+  <p class="section-sub reveal">The intersection of product thinking and technical execution.</p>
+
+  <div class="skills-layout">
+    <div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Core Product Management</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Product Strategy</span>
+          <span class="skill-tag highlight">Roadmap Planning</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Backlog Prioritisation</span>
+          <span class="skill-tag">User-Centric Design</span>
+          <span class="skill-tag">Technical Storytelling</span>
+          <span class="skill-tag">Cross-Functional Leadership</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">AI Engineering</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Prompt Engineering</span>
+          <span class="skill-tag highlight">RAG Systems</span>
+          <span class="skill-tag">Azure AI Foundry</span>
+          <span class="skill-tag">Azure AI Search</span>
+          <span class="skill-tag">Copilot Studio Agents</span>
+          <span class="skill-tag">Vectorization</span>
+          <span class="skill-tag">Embeddings</span>
+          <span class="skill-tag">OpenAI APIs</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Rapid Development</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">React JS</span>
+          <span class="skill-tag highlight">Python</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">WhatsApp API</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">AI Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Claude Code</span>
+          <span class="skill-tag highlight">GitHub Copilot</span>
+          <span class="skill-tag">Cursor AI</span>
+          <span class="skill-tag">Bolt.new</span>
+          <span class="skill-tag">Base44</span>
+          <span class="skill-tag">NotebookLM</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-title">PM Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Jira</span>
+          <span class="skill-tag">Azure DevOps</span>
+          <span class="skill-tag">Aha</span>
+          <span class="skill-tag">Confluence</span>
+          <span class="skill-tag">Miro</span>
+          <span class="skill-tag">Notion</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label reveal" style="margin-bottom:0.75rem;">Certifications</div>
+      <div class="cert-list">
+        <div class="cert-item reveal">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Certified Scrum Product Owner (CSPO)</div>
+            <div class="cert-issuer">Scrum Alliance · #001704978</div>
+          </div>
+        </div>
+        <div class="cert-item reveal">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Software Product Management</div>
+            <div class="cert-issuer">University of Alberta · WBCRZG4ERABT</div>
+          </div>
+        </div>
+        <div class="cert-item reveal">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Introduction to Generative AI</div>
+            <div class="cert-issuer">Google · 4V9494HCTJE7</div>
+          </div>
+        </div>
+        <div class="cert-item reveal">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Foundations of UX Design</div>
+            <div class="cert-issuer">Google · W75AKY8EWA52</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label reveal" style="margin-top:2.5rem;margin-bottom:0.75rem;">Education</div>
+      <div class="cert-list">
+        <div class="cert-item reveal">
+          <div class="cert-dot" style="background:var(--amber-light)"></div>
+          <div>
+            <div class="cert-name">Masters in Computer Applications</div>
+            <div class="cert-issuer">University of Pune · 2015</div>
+          </div>
+        </div>
+        <div class="cert-item reveal">
+          <div class="cert-dot" style="background:var(--amber-light)"></div>
+          <div>
+            <div class="cert-name">Bachelors in Computer Science</div>
+            <div class="cert-issuer">University of Pune · 2012</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label reveal">Recognition</div>
+  <h2 class="section-title reveal">Achievements that <em>matter</em></h2>
+  <p class="section-sub reveal">Building award-winning solutions, not just shipping features.</p>
+
+  <div class="achievements-grid">
+    <div class="ach-card winner reveal">
+      <div class="ach-trophy"><span class="material-symbols-outlined">emoji_events</span></div>
+      <div class="ach-badge gold">Winner</div>
+      <div class="ach-title">NICE Sparkathon 2025</div>
+      <div class="ach-desc">Built an AI solution for Evidence Prioritisation at the company-wide hackathon. An Agentic workflow with 3 agents using n8n.</div>
+    </div>
+
+    <div class="ach-card reveal">
+      <div class="ach-trophy" style="opacity:0.12"><span class="material-symbols-outlined">military_tech</span></div>
+      <div class="ach-badge silver">Finalist</div>
+      <div class="ach-title">FIS InnovateIN48 2025</div>
+      <div class="ach-desc">Led a team of 4 to build an AI solution for automated test script generation from test cases — in just 48 hours. Concept later shipped as a production tool at scale.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SIDE PROJECTS -->
+<section id="side-projects">
+  <div class="section-label reveal">Built on my own time</div>
+  <h2 class="section-title reveal">Side projects that <em>prove the point</em></h2>
+  <p class="section-sub reveal">Not proofs of concept. Not demos. Real systems, deployed on cloud, used by real people — built entirely by me, outside of work hours.</p>
+
+  <div class="side-projects-grid">
+
+    <div class="sp-card reveal">
+      <div class="sp-header">
+        <div class="sp-icon green"><span class="material-symbols-outlined">dentistry</span></div>
+        <span class="sp-self-built">Self-built · Live</span>
+      </div>
+      <div class="sp-name">Dental Practice Management System</div>
+      <div class="sp-tagline">Healthcare SaaS · Multi-clinic · Cloud-deployed</div>
+      <div class="sp-desc">
+        Full-stack practice management platform built for dentists and dental clinics. Handles everything from patient registration and multi-visit treatment records to prescription generation, billing, and appointment scheduling — all delivered over WhatsApp with zero friction for patients.
+      </div>
+      <div class="sp-features">
+        <span class="sp-feature">Patient records & visit history</span>
+        <span class="sp-feature">Prescriptions via WhatsApp</span>
+        <span class="sp-feature">Bills & invoicing</span>
+        <span class="sp-feature">Appointment scheduling</span>
+        <span class="sp-feature">Multi-user roles</span>
+        <span class="sp-feature">Multi-clinic support</span>
+        <span class="sp-feature">Admin panel</span>
+      </div>
+      <div class="sp-stack">
+        <span class="sp-tech">React JS</span>
+        <span class="sp-tech">FastAPI</span>
+        <span class="sp-tech">PostgreSQL</span>
+        <span class="sp-tech">WhatsApp API</span>
+        <span class="sp-tech">Cloud</span>
+        <span class="sp-tech">Python</span>
+      </div>
+    </div>
+
+    <div class="sp-card amber-accent reveal">
+      <div class="sp-header">
+        <div class="sp-icon amber"><span class="material-symbols-outlined">forum</span></div>
+        <span class="sp-self-built">Self-built · AI-powered</span>
+      </div>
+      <div class="sp-name">WhatsApp AI Patient Assistant</div>
+      <div class="sp-tagline">Conversational AI · Healthcare · OpenAI</div>
+      <div class="sp-desc">
+        AI chatbot integrated into the dental platform that lets patients query their own visit history, prescriptions, and upcoming appointments — entirely over WhatsApp. Powered by OpenAI's Responses API, the bot understands natural language questions and returns contextually accurate, personalised answers from patient records.
+      </div>
+      <div class="sp-features">
+        <span class="sp-feature">Natural language queries</span>
+        <span class="sp-feature">Visit & prescription lookups</span>
+        <span class="sp-feature">Appointment reminders</span>
+        <span class="sp-feature">Patient-scoped context</span>
+      </div>
+      <div class="sp-stack">
+        <span class="sp-tech">OpenAI Responses API</span>
+        <span class="sp-tech">WhatsApp API</span>
+        <span class="sp-tech">FastAPI</span>
+        <span class="sp-tech">Python</span>
+        <span class="sp-tech">RAG</span>
+      </div>
+    </div>
+
+    <div class="sp-card blue-accent reveal">
+      <div class="sp-header">
+        <div class="sp-icon blue"><span class="material-symbols-outlined">inventory_2</span></div>
+        <span class="sp-self-built">Self-built · FMCG</span>
+      </div>
+      <div class="sp-name">Instamaal</div>
+      <div class="sp-tagline">Supply Chain · Distributor-to-Retail · FMCG</div>
+      <div class="sp-desc">
+        Retail and distributor supply chain management platform for the FMCG sector. Enables small-scale retail stores to place orders directly with multiple distributors, track fulfillment, and manage payments — all in one place. Designed for the complexity of many-to-many distributor–retailer relationships that typically run on phone calls and spreadsheets.
+      </div>
+      <div class="sp-features">
+        <span class="sp-feature">Multi-distributor ordering</span>
+        <span class="sp-feature">Multi-retailer management</span>
+        <span class="sp-feature">Payment tracking</span>
+        <span class="sp-feature">Order fulfillment status</span>
+        <span class="sp-feature">FMCG catalog management</span>
+      </div>
+      <div class="sp-stack">
+        <span class="sp-tech">React JS</span>
+        <span class="sp-tech">FastAPI</span>
+        <span class="sp-tech">PostgreSQL</span>
+        <span class="sp-tech">Python</span>
+        <span class="sp-tech">REST APIs</span>
+      </div>
+    </div>
+
+    <div class="sp-card purple-accent reveal">
+      <div class="sp-header">
+        <div class="sp-icon purple"><span class="material-symbols-outlined">science</span></div>
+        <span class="sp-self-built">Self-built · AI · QA</span>
+      </div>
+      <div class="sp-name">AI Test Case Generator</div>
+      <div class="sp-tagline">QA Automation · Web AI · Zero-effort Testing</div>
+      <div class="sp-desc">
+        Point this tool at any web application and it automatically generates structured test cases and natural language test scripts — no walkthroughs, no manual effort, no sessions needed. AI analyses the page structure and functional behaviour to produce coverage that would otherwise take a QA team days to write. Directly inspired by the pain points from a decade in test automation.
+      </div>
+      <div class="sp-features">
+        <span class="sp-feature">Automated page analysis</span>
+        <span class="sp-feature">Test case generation</span>
+        <span class="sp-feature">Natural language scripts</span>
+        <span class="sp-feature">No walkthrough needed</span>
+        <span class="sp-feature">Functional behaviour mapping</span>
+      </div>
+      <div class="sp-stack">
+        <span class="sp-tech">OpenAI APIs</span>
+        <span class="sp-tech">Python</span>
+        <span class="sp-tech">React JS</span>
+        <span class="sp-tech">FastAPI</span>
+        <span class="sp-tech">Prompt Engineering</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sp-end-image-wrap reveal">
+    <img
+      class="sp-end-image"
+      src="https://static.wixstatic.com/media/20b418_405f6a8243b145249c9acd02d95c0581~mv2.png"
+      alt="Side projects showcase image"
+    >
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-label">Let's connect</div>
+    <h2 class="contact-title">Have an idea that needs a builder?</h2>
+    <p class="contact-sub">Whether you're looking to validate an AI use case, speed up your product cycle, or bridge the gap between engineering and business — let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:riteshjantreofficial@gmail.com" class="contact-link primary"><span class="material-symbols-outlined">mail</span> riteshjantreofficial@gmail.com</a>
+      <a href="tel:+919822839194" class="contact-link"><span class="material-symbols-outlined">call</span> +91 98228 39194</a>
+      <a href="https://www.linkedin.com/in/riteshjantre" class="contact-link" target="_blank">LinkedIn →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Ritesh Jantre · Full Stack AI Product Manager · Pune, India</p>
+  <p>Built with intentionality</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 60 * (Array.from(entry.target.parentElement.children).indexOf(entry.target) % 4));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
