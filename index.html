@@ -115,7 +115,9 @@
   }
 .hero-top{
     display: grid;
-   grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: 3rem;
 }
   .hero-left {
     position: relative;
@@ -1242,9 +1244,18 @@
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 3rem; }
+    .hero { padding: 7rem 1.5rem 3rem; gap: 2rem; }
+    .hero-top { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-left { order: 1; }
+    .hero-right { order: 2; }
     .hero-left::after { inset: -2rem -1rem; opacity: 0.08; }
-    .profile-stage { min-height: 560px; max-width: 460px; width: 100%; margin: 0 auto; }
+    .profile-stage {
+      width: 100%;
+      max-width: 380px;
+      min-height: 0;
+      aspect-ratio: 4 / 5;
+      margin: 0 auto;
+    }
     section { padding: 3.5rem 1.5rem; }
     .philosophy-grid { grid-template-columns: 1fr; }
     .philosophy-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
@@ -1263,8 +1274,15 @@
     .products-grid { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: 1fr; }
     .impact-inner { grid-template-columns: 1fr 1fr; }
-    .hero-name { font-size: 3rem; }
-    .profile-stage { min-height: 430px; border-radius: 1.25rem; }
+    .hero-name { font-size: 2.6rem; line-height: 1.05; }
+    .hero-title { font-size: 0.72rem; line-height: 1.6; }
+    .hero-desc { font-size: 0.95rem; margin-bottom: 2rem; }
+    .profile-stage {
+      max-width: 320px;
+      aspect-ratio: 4 / 5;
+      border-radius: 1rem;
+    }
+    .profile-photo { object-position: center 18%; }
     .profile-caption { align-items: flex-start; flex-direction: column; }
   }
 </style>
@@ -1544,7 +1562,7 @@
 <!-- PRODUCTS -->
 <section id="products">
   <div class="section-label reveal">Products I Worked on</div>
-  <h2 class="section-title reveal">Products & <em>solutions</em></h2>
+  <h2 class="section-title reveal">Products & <em>Solutions</em></h2>
   <p class="section-sub reveal">From mission-critical 911 systems to AI-powered automation platforms — real products with real users.</p>
 
   <div class="products-grid">
@@ -1716,7 +1734,7 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-label reveal">Capabilities</div>
-  <h2 class="section-title reveal">Skills &amp; <em>certifications</em></h2>
+  <h2 class="section-title reveal">Skills &amp; <em>Certifications</em></h2>
   <p class="section-sub reveal">The intersection of product thinking and technical execution.</p>
 
   <div class="skills-layout">
@@ -1845,7 +1863,7 @@
 <!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="section-label reveal">Recognition</div>
-  <h2 class="section-title reveal">Achievements that <em>matter</em></h2>
+  <h2 class="section-title reveal">Achievements & <em>validations</em></h2>
   <p class="section-sub reveal">Building award-winning solutions, not just shipping features.</p>
 
   <div class="achievements-grid">
@@ -1870,7 +1888,7 @@
 <!-- SIDE PROJECTS -->
 <section id="side-projects">
   <div class="section-label reveal">Built on my own time</div>
-  <h2 class="section-title reveal">Side projects that <em>prove the point</em></h2>
+  <h2 class="section-title reveal">Side gigs</h2>
   <p class="section-sub reveal">Not proofs of concept. Not demos. Real systems, deployed on cloud, used by real people — built entirely by me, outside of work hours.</p>
 
   <div class="side-projects-grid">
