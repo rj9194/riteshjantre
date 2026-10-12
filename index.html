@@ -1899,28 +1899,37 @@
     <div class="sp-card reveal">
       <div class="sp-header">
         <div class="sp-icon green"><span class="material-symbols-outlined">dentistry</span></div>
-        <span class="sp-self-built">Self-built · Live</span>
+        <span class="sp-self-built">Self-built · Live in production</span>
       </div>
-      <div class="sp-name">Dental Practice Management System</div>
-      <div class="sp-tagline">Healthcare SaaS · Multi-clinic · Cloud-deployed</div>
+      <div class="sp-name">Apexop — Dental Practice Management Platform</div>
+      <div class="sp-tagline">Healthcare SaaS · Multi-tenant · Ideation to production</div>
       <div class="sp-desc">
-        Full-stack practice management platform built for dentists and dental clinics. Handles everything from patient registration and multi-visit treatment records to prescription generation, billing, and appointment scheduling — all delivered over WhatsApp with zero friction for patients.
+        Product and engineering owned end to end: I ran discovery with a working dental clinic, wrote the product specification, designed the architecture, built the full stack and deployed it to production on GCP. Apexop is a multi-tenant, multi-clinic system for India-based practices that covers the whole patient lifecycle: registration, appointments, treatment plans, visit logging, prescriptions and billing. Clinic-branded WhatsApp messaging and an AI receptionist run on top. Compliance with DPDP/SPDI was designed in from the start.
       </div>
       <div class="sp-features">
-        <span class="sp-feature">Patient records & visit history</span>
-        <span class="sp-feature">Prescriptions via WhatsApp</span>
-        <span class="sp-feature">Bills & invoicing</span>
-        <span class="sp-feature">Appointment scheduling</span>
-        <span class="sp-feature">Multi-user roles</span>
-        <span class="sp-feature">Multi-clinic support</span>
-        <span class="sp-feature">Admin panel</span>
+        <span class="sp-feature">Fast consultation close-out on a clickable FDI tooth chart</span>
+        <span class="sp-feature">Patient 360 profile &amp; self-service portal</span>
+        <span class="sp-feature">Prescriptions &amp; bills as clinic-branded PDFs, sent on WhatsApp</span>
+        <span class="sp-feature">Daily WhatsApp appointment confirmations (Yes/No buttons)</span>
+        <span class="sp-feature">Self-service patient intake via secure WhatsApp link</span>
+        <span class="sp-feature">Clinic onboarding with trial &amp; payment gating</span>
+        <span class="sp-feature">Super-admin console &amp; WhatsApp usage/cost dashboard</span>
+        <span class="sp-feature">Role-based access: super-admin, admin, doctor, receptionist, patient</span>
+        <span class="sp-feature">Security: TOTP MFA, rotating refresh tokens with reuse detection</span>
+        <span class="sp-feature">Tenant isolation: Postgres row-level security plus app-level filters</span>
+        <span class="sp-feature">Compliance: per-purpose consent, DB-trigger audit log, PII-safe logging, erasure cascade</span>
       </div>
       <div class="sp-stack">
         <span class="sp-tech">React JS</span>
+        <span class="sp-tech">TypeScript</span>
         <span class="sp-tech">FastAPI</span>
         <span class="sp-tech">PostgreSQL</span>
-        <span class="sp-tech">WhatsApp API</span>
-        <span class="sp-tech">Cloud</span>
+        <span class="sp-tech">Meta WhatsApp Cloud API</span>
+        <span class="sp-tech">OpenAI</span>
+        <span class="sp-tech">GCP Cloud Run</span>
+        <span class="sp-tech">Cloud SQL</span>
+        <span class="sp-tech">Secret Manager</span>
+        <span class="sp-tech">Cloud Scheduler</span>
         <span class="sp-tech">Python</span>
       </div>
     </div>
@@ -1938,8 +1947,9 @@
       <div class="sp-features">
         <span class="sp-feature">Natural language queries</span>
         <span class="sp-feature">Visit & prescription lookups</span>
-        <span class="sp-feature">Appointment reminders</span>
-        <span class="sp-feature">Patient-scoped context</span>
+        <span class="sp-feature">Function-calling tools on clinic-scoped data</span>
+        <span class="sp-feature">Per-clinic persona, prompt &amp; session memory</span>
+        <span class="sp-feature">Privacy-reduced prompts (no phone/email/DOB, store=false)</span>
       </div>
       <div class="sp-stack">
         <span class="sp-tech">OpenAI Responses API</span>
