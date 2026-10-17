@@ -2012,6 +2012,40 @@
       </div>
     </div>
 
+    <div class="sp-card reveal">
+      <div class="sp-header">
+        <div class="sp-icon green"><span class="material-symbols-outlined">qr_code_scanner</span></div>
+        <span class="sp-self-built">Self-built · Live in production</span>
+      </div>
+      <div class="sp-name">Society Gate Pass — Digital Visitor Management</div>
+      <div class="sp-tagline">Residential SaaS · Multi-society · QR guest passes</div>
+      <div class="sp-desc">
+        A mobile-first web app that replaces the paper gate register. Residents pre-approve guests with a one-time QR code and a 6-digit code shared over WhatsApp; gate staff scan or enter the code and log vehicle number, gate and time; society managers approve residents, manage tenants and review audit logs. Live at 33 Milestone (2 wings, 144 flats) and built to support up to 5 fully isolated societies in one deployment. Designed, built, deployed and supported solo, including onboarding, hosting and pricing (SaaS vs licence plus support).
+      </div>
+      <div class="sp-features">
+        <span class="sp-feature">Four roles: resident, gate staff, society admin, platform operator</span>
+        <span class="sp-feature">Multi-society isolation: Postgres row-level security, session-scoped queries, cross-society tests</span>
+        <span class="sp-feature">Secure pass flow: single-use QR tokens, 6-digit codes, validity windows, per-flat daily limits, lockout on repeated wrong attempts</span>
+        <span class="sp-feature">Tenant end dates with automatic expiry and cancellation of unused passes</span>
+        <span class="sp-feature">Audit log of every admin action, formula-safe CSV exports, auto-deletion of old visitor logs</span>
+        <span class="sp-feature">Bilingual (English &amp; Hindi) mobile-first UI with translation check in tests</span>
+        <span class="sp-feature">CI/CD: GitHub Actions to Cloud Run via Workload Identity Federation (no stored keys), Secret Manager, Alembic migrations, weekly DB export</span>
+      </div>
+      <div class="sp-stack">
+        <span class="sp-tech">Python</span>
+        <span class="sp-tech">FastAPI</span>
+        <span class="sp-tech">SQLAlchemy</span>
+        <span class="sp-tech">Alembic</span>
+        <span class="sp-tech">Jinja2</span>
+        <span class="sp-tech">PostgreSQL</span>
+        <span class="sp-tech">Cloud SQL</span>
+        <span class="sp-tech">Docker</span>
+        <span class="sp-tech">GCP Cloud Run</span>
+        <span class="sp-tech">GitHub Actions</span>
+        <span class="sp-tech">pytest</span>
+      </div>
+    </div>
+
   </div>
 
   <div class="sp-end-image-wrap reveal">
